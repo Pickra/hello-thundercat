@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "Origin": "http://localhost:8080",
+        "Api": {
+            "users": "/users"
+        }
+    },
+    "prod": {
+        "Origin": "you-should-really-put-something-here",
+        "Api": {
+            "users": "/you-should-really-put-something-here"
+        }
+    }
+}

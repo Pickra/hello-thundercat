@@ -1,0 +1,35 @@
+{
+  "name": "hello-thundercat",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "webpack-dev-server --env=dev"
+  },
+  "author": "Ari Picker",
+  "license": "MIT",
+  "devDependencies": {
+    "@pickra/css-components": "1.0.0",
+    "@types/react": "16.0.10",
+    "@types/react-dom": "16.0.0",
+    "@types/react-router-dom": "4.0.8",
+    "css-loader": "0.28.7",
+    "extract-text-webpack-plugin": "3.0.1",
+    "faker": "4.1.0",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "1.6.1",
+    "json-server": "0.14.0",
+    "promise-polyfill": "8.0.0",
+    "redux": "4.0.0",
+    "style-loader": "0.19.0",
+    "ts-loader": "2.3.7",
+    "typescript": "2.5.3",
+    "webpack": "3.6.0",
+    "webpack-dev-server": "2.9.1",
+    "whatwg-fetch": "2.0.4"
+  },
+  "dependencies": {
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "react-router-dom": "4.2.2"
+  }
+}

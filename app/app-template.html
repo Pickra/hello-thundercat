@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%=o.htmlWebpackPlugin.options.title %}</title>
+    <link rel="stylesheet" href="{%=o.htmlWebpackPlugin.files.css %}">
+</head>
+<body>
+    <div id="app"></div>
+    {% for (var cdn in o.htmlWebpackPlugin.options.cdnResources) { %}
+    <script src="{%=o.htmlWebpackPlugin.options.cdnResources[cdn] %}"></script>
+    {% } %}
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+    {% } %}
+</body>
+</html>
