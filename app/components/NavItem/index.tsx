@@ -15,6 +15,7 @@ export default class NavItem extends React.Component <NavItemProps, {}> {
                     to={to}
                     exact={true}
                     className="layout__nav-link"
+                    activeClassName="layout__nav-link--active"
                 >{children}</NavLink>
             </li>
         );

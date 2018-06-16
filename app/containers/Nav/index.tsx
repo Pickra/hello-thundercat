@@ -10,6 +10,7 @@ export default class Nav extends React.Component<NavProps, {}> {
             <nav className="layout__nav" style={style}>
                 <ul className="layout__nav-menu">
                     <NavItem to='/select'>Who are you?</NavItem>
+                    <NavItem to='/about-you'>About you</NavItem>
                 </ul>
             </nav>
         );
