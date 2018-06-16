@@ -2,6 +2,7 @@ import * as React from "react";
 import { ApiUrl, Origin } from "../../models/config";
 import { History } from "history";
 import userStore, { userActions } from "../../stores/userStore";
+import { User } from "../../reducers/userReducer";
 
 import LoginSignUpForm from "../LoginSignUpForm";
 import LoginAlert from "../LoginAlert";
@@ -21,25 +22,39 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         isAlertVisible: false
     }
 
-    handleLogin = (login, pswd): void => {
+    handleLogin = (login: string, pswd: string): void => {
         fetch(`${Origin}${ApiUrl.users}?login=${login}&password=${pswd}`)
         .then(res => res.json())
-        .then(r => {
-            if (r.length > 0) {
-                userStore.dispatch({
-                    type: userActions.login,
-                    payload: { isLoggedIn: true }
-                });
-                
-                this.props.history.push("/select");
+        .then((users: User[]) => {
+            if (users.length <= 0) {
+                this.setState({ isAlertVisible: true });
+                return;
             }
-            else { this.setState({ isAlertVisible: true }); }
+
+            userStore.dispatch({
+                type: userActions.login,
+                payload: { isLoggedIn: true }
+            });
+                
+            if (users[0].character) {
+                userStore.dispatch({
+                    type: userActions.selectCharacter,
+                    payload: {
+                        hasSelectedCharacter: true,
+                        character: users[0].character
+                    }
+                });
+
+                this.props.history.push("/about-you");
+                return;
+            }
+            else { this.props.history.push("/select"); }
         });
     }
     
     showSignup = (): void => { this.setState({ isLoginVisible: false })}
 
-    handleSignup = (login, pswd): void => {
+    handleSignup = (login: string, pswd: string): void => {
         const postData = { 
             method: 'POST', 
             body: JSON.stringify({ login: login, password: pswd }), 

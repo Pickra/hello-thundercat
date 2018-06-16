@@ -5,6 +5,7 @@ module.exports = {
         {
             login: "Lion'O",
             password: "thunsercatsFoEva",
+            character: "Lion'O",
             id: faker.random.uuid()
         }
     ]
