@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface LoginAlertProps {
     close: () => void;
-    showSignup: () => void;
+    showSignup?: () => void;
     isAlertVisible: boolean;
 }
 
@@ -14,15 +14,8 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
         }
     }
 
-    handleKeyDownSignup = e => {
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            this.props.showSignup();
-        }
-    }
-
     render() {
-        const { close, showSignup, isAlertVisible} = this.props;
+        const { close, children, isAlertVisible} = this.props;
         if (!isAlertVisible) { return null; }
 
         return (
@@ -42,17 +35,7 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
                         aria-label="close"
                     ><use xlinkHref="#ei-close"></use></svg>
                 </span>
-                <span>
-                    Great Jaga's ghost! That didn't work.
-                    Do you need to
-                    <a
-                        style={{color: 'white'}}
-                        tabIndex={0}
-                        onClick={showSignup}
-                        onKeyDown={this.handleKeyDownSignup}
-                    > signup</a>,
-                    snarf snarf?
-                </span>
+                {children}
             </div>
         );
     }

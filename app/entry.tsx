@@ -7,7 +7,6 @@ import App from "./containers/App/index";
 import "../node_modules/@pickra/css-components/dist/css-components.js";
 import "../node_modules/@pickra/css-components/dist/css-components.css";
 
-
 const Index = () => {
     return (
         <BrowserRouter>

@@ -60,7 +60,28 @@ export default class Login extends React.Component<LoginProps, LoginState> {
           });
     }
 
+    handleKeyDownSignup = e => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            this.showSignup();
+        }
+    }
+
     closeAlert = (): void => { this.setState({ isAlertVisible: false }); }
+
+    getAlertMessage = (): JSX.Element => (
+        <span>
+            Great Jaga's ghost! That didn't work.
+            Do you need to
+            <a
+                style={{color: 'white'}}
+                tabIndex={0}
+                onClick={this.showSignup}
+                onKeyDown={this.handleKeyDownSignup}
+            > signup</a>,
+            snarf snarf?
+        </span>
+    );
 
     render() {
         return (
@@ -69,7 +90,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
                     close={this.closeAlert}
                     showSignup={this.showSignup}
                     isAlertVisible={this.state.isAlertVisible}
-                />
+                >{this.getAlertMessage()}</LoginAlert>
                 <LoginSignUpForm
                     onSubmit={this.handleLogin}
                     isVisible={this.state.isLoginVisible}
