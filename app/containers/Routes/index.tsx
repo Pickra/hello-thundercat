@@ -21,11 +21,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={render} />;
 };
 
-const canGoToAboutYouPage = (): boolean => {
-    const { isLoggedIn, hasSelectedCharacter } = userStore.getState();
-    return isLoggedIn && hasSelectedCharacter;
-};
-
 const Routes = (props: RoutesProps) => (
     <Switch>
         <Route exact={true} path="/" component={Login} />
@@ -41,7 +36,7 @@ const Routes = (props: RoutesProps) => (
             path="/about-you"
             component={AboutYou}
             showAlert={props.showAlert}
-            condition={canGoToAboutYouPage}
+            condition={userStore.getState().isLoggedIn && userStore.getState().hasSelectedCharacter}
         />
     </Switch>
 );
