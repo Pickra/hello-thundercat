@@ -7,6 +7,8 @@ import Footer from "../Footer";
 import Routes from "../Routes";
 import LoginAlert from "../../components/LoginAlert";
 
+import userStore from "../../stores/userStore";
+
 const logoPng = require("../../../images/logo.png");
 
 interface AppState {
@@ -22,7 +24,7 @@ export default class App extends React.Component<{}, AppState> {
     render() {
         return (
             <div className="layout">
-                <Header />
+                <Header titleText={userStore.getState().headerTitle} />
                 <Nav />
                 <MainContent>
                     <img
