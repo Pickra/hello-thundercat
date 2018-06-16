@@ -96,7 +96,14 @@ module.exports = function(env) {
             rules: [
                 { test: /\.tsx?$/, loader: "ts-loader" },
                 { test: /\.html?$/, loader: "html-loader" },
-                { test: /\.css$/, use: ExtractTextPlugin.extract(stylesLoaders(isDev)) }
+                { test: /\.css$/, use: ExtractTextPlugin.extract(stylesLoaders(isDev)) },
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    use: [{
+                        loader: 'url-loader',
+                        options: { limit: 10000 }
+                    }]
+                }
             ]
         },
         devtool: "source-map",
