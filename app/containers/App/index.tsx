@@ -8,6 +8,7 @@ import Nav from "../Nav";
 import Footer from "../Footer";
 
 import Login from "../../components/Login";
+import ThunderCatSelection from "../../components/ThunderCatSelection";
 interface AppProps {}
 
 export default class App extends React.Component<AppProps, {}> {
@@ -19,6 +20,7 @@ export default class App extends React.Component<AppProps, {}> {
                 <MainContent>
                     <Switch>
                         <Route exact={true} path="/" component={Login} />
+                        <Route exact={true} path="/select" component={ThunderCatSelection} />
                     </Switch>
                 </MainContent>
                 <Footer />
