@@ -15,7 +15,7 @@ const Characters: CharacterMap = {
     "Lion'O": {
         src: require("../../../images/lion-o.png"),
         alt: "Lion 'O image",
-        id: "liono",
+        id: "Lion'O",
         component: LionO
     }
 }
