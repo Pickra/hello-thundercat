@@ -68,9 +68,8 @@ const plugins = (isDev, env) => [
         }
     }),
     new ExtractTextPlugin("styles.css"),
-    new webpack.DefinePlugin({ CONFIG: JSON.stringify(appConfig[env]) }),
-    !isDev ?  new webpack.optimize.UglifyJsPlugin() : false
-].filter(Boolean);
+    new webpack.DefinePlugin({ CONFIG: JSON.stringify(appConfig[env]) })
+];
 
 
 module.exports = function(env) {
