@@ -9,8 +9,6 @@ import LoginAlert from "../../components/LoginAlert";
 
 import userStore from "../../stores/userStore";
 
-const logoPng = require("../../../images/logo.png");
-
 interface AppState {
     isAlertVisible: boolean;
 }
@@ -28,9 +26,8 @@ export default class App extends React.Component<{}, AppState> {
                 <Nav />
                 <MainContent>
                     <img
-                        id="logo"
-                        src={logoPng}
-                        alt="Thundercats Logo"
+                        src={userStore.getState().character.src}
+                        alt={userStore.getState().character.alt}
                         style={{display: "block", margin: "1rem auto"}}
                     />
                     <LoginAlert
