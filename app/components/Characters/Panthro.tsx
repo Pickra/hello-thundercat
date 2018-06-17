@@ -4,7 +4,7 @@ const Panthro = () => (
     <div>
         <p>
             Panthro fled his dying homeworld of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thundera"
                 title="Thundera"
             >Thundera</a>&#32;
@@ -13,13 +13,13 @@ const Panthro = () => (
             eyes. Along with the other ThunderCats, Panthro was given new
             clothing and weapons (specifically a set of&nbsp;fighting sticks
             known as nunchucks)&nbsp;by&nbsp;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Jaga"
                 title="Jaga"
             >Jaga</a>&nbsp;
             to help him adapt to life in what would be the ThunderCats new home.
             When the&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Mutants"
                 title="Mutants"
             >Mutants</a>&#32;
@@ -30,7 +30,7 @@ const Panthro = () => (
             pilot the ship himself, but Panthro realised that the auto pilot
             could not be trusted. Panthro entered a suspension capsule and made
             sure&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Snarf"
                 title="Snarf"
             >Snarf</a>&#32;
@@ -38,14 +38,14 @@ const Panthro = () => (
         </p>
         <p>
             Panthro once found himself up against the&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Driller"
                 title="Driller"
             >Driller</a>,
             who was working for Mumm-Ra. The Driller kidnapped Panthro, and
             Mumm-Ra used him to create a clone of Panthro, which was then
             brought to life by the spirit of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Hammerhand"
                 title="Hammerhand"
             >Hammerhand</a>&#32;

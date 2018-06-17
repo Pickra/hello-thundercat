@@ -5,12 +5,12 @@ const Wilykit = () => (
         <p>
             Wilykit and her brother Wilykat were among the Thundercat Nobles
             leaving the dying planet of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thundera"
                 title="Thundera"
             >Thundera</a>.
             The Thunderkittens were given new clothing and weapons by&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Jaga"
                 title="Jaga"
             >Jaga</a>&nbsp;
@@ -21,7 +21,7 @@ const Wilykit = () => (
         <p>
             After the ship crashed on Third Earth, the Thunderkittens helped to
             fight back the Mutants once again, surprised to see how much&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Lion-O"
                 title="Lion-O"
             >Lion-O</a> had changed.
@@ -33,7 +33,7 @@ const Wilykit = () => (
             was captured. Wilykit journeyed with Lion-O to the top of the tower,
             avoiding many traps on the way, before rescuing Wilykat and fighting
             some monstrous&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Gargoyles"
                 title="Gargoyles"
             >Gargoyles</a>.
@@ -43,7 +43,7 @@ const Wilykit = () => (
             time for the Trial of Cunning. As the most cunning and crafty of the
             Thundercats, it was Wilykit and Wilykat's duty to try and stop
             Lion-O. The Thunderkittens set many traps for Lion-O within the&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Maze_of_Infinity"
                 title="Maze of Infinity"
             >Maze of Infinity</a>&#32;

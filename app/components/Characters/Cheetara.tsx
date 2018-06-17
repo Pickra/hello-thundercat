@@ -3,21 +3,21 @@ import * as React from "react";
 const Cheetara = () => (
     <div>
         <p>Cheetara had left the doomed planet of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thundera"
                 title="Thundera"
             >Thundera</a>&#32;
             with her fellow ThunderCats. Leaving behind the planet,
             Cheetara was instructed by&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Jaga"
                 title="Jaga"
             >Jaga</a> to wake&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Lion-O"
                 title="Lion-O"
             >Lion-O</a> from sleep, which she did, despite the objections of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Snarf"
                 title="Snarf"
             >Snarf</a>. When the Mutants boarded their ship, Cheetara joined the
@@ -32,7 +32,7 @@ const Cheetara = () => (
         </p>
         <p>Cheetara's amazing speed has often saved the other ThunderCats from
             deadly situations. Once when&#32;
-            <a href="http://thundercats.wikia.com/wiki/Tygra" title="Tygra">Tygra</a>&#32;
+            <a target="_blank" href="http://thundercats.wikia.com/wiki/Tygra" title="Tygra">Tygra</a>&#32;
             ventured into a mysterious cave, he found himself beginning to age
             rapidly, Cheetara was the only one who could get in and out of the
             cave fast enough to save Tygra from death.

@@ -4,18 +4,18 @@ const LionO = () => (
     <div>
         <p>
             <b>Lion-O</b> (voiced by&#32;
-            <a href="http://en.wikipedia.org/wiki/Larry_Kenney">Larry Kenney</a>)
-            is the son of <a href="/wiki/Claudus" title="Claudus">Claudus</a>,
+            <a target="_blank" href="http://en.wikipedia.org/wiki/Larry_Kenney">Larry Kenney</a>)
+            is the son of <a target="_blank" href="http://en.wikipedia.org/wiki/Claudus" title="Claudus">Claudus</a>,
             and is the leader and hereditary
-            "<a
+            "<a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Lord_of_the_ThunderCats"
                 title="Lord of the ThunderCats"
             >Lord of the ThunderCats</a>".
             His adventures are shown from childhood to adulthood on&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Third_Earth"
                 title="Third Earth">Third Earth</a> and&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/New_Thundera"
                 title="New Thundera"
             >New Thundera</a>,
@@ -24,38 +24,38 @@ const LionO = () => (
         <p>
             At the beginning of the series, Lion-O is a boy of mere twelve years old.
             He was among the group of&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thunderian"
                 title="Thunderian"
             >Thunderian</a> nobles to make the trip to&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Third_Earth"
                 title="Third Earth"
             >Third Earth</a> in the flag ship of the&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thundercats"
                 title="Thundercats"
             >Thundercats</a>, when their planet&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Thundera"
                 title="Thundera"
             >Thundera</a> was destroyed. During this journey, he aged physically
             until he became an adult of age twenty-four; this was due to the
             suspension capsule diminishing but not altogether preventing aging
-            ("<a
+            ("<a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Exodus"
                 title="Exodus"
             >Exodus</a>"). Coincidentally, such a malfunction did not occur with
-            &#32;<a
+            &#32;<a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Wilykat"
                 title="Wilykat"
             >Wilykat</a> and&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Wilykit"
                 title="Wilykit"
             >Wilykit</a>, who were around the same age as himself,
             though as Lion-O recalls in the series' first episode, his mentor&#32;
-            <a
+            <a target="_blank"
                 href="http://thundercats.wikia.com/wiki/Jaga"
                 title="Jaga"
             >Jaga</a> had mentioned that some aging does take place while in the
