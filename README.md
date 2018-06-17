@@ -10,7 +10,7 @@ I'm using `node  8.9.4` and `npm 5.6.0`, but `node >= 6.0.0` is probably fine.
 - `npm run build`: Prod build.
 - `npm start`: Development mode, watch/rebuild on save.
     - `http://localhost:8080/webpack-dev-server/`: refreshes the browser on save.
-    Fair warning, you will lose your progress...and will need to manually refresh the browser. I'm working on it.
+    Fair warning, you will lose state.
 
 ## Credit
 ThunderCat eps converted to pngs:

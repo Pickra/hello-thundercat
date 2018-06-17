@@ -6,4 +6,6 @@ export enum userActions {
     selectCharacter = "SELECT_CHARACTER"
 }
 
-export default createStore(userReducer);
+const store = createStore(userReducer);
+
+export default store;

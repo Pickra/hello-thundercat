@@ -108,7 +108,9 @@ module.exports = function(env) {
         devtool: "source-map",
         devServer: {
             port: 8080,
-            proxy: { "*": "http://localhost:3000" },
+            proxy: {
+                '/users': 'http://localhost:3000'
+            },
             contentBase: path.join(__dirname, "public"),
             noInfo: true,
             historyApiFallback: true
