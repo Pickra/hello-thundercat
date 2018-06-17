@@ -33,9 +33,12 @@ export default class App extends React.Component<{}, AppState> {
                     <LoginAlert
                         close={this.closeAlert}
                         isAlertVisible={this.state.isAlertVisible}
+                        messageId="login-alert"
                     >
-                        Sword of Omens, give me Sight Beyond Sight!
-                        Ohh, you just need to login, snarf snarf...
+                        <span id="login" aria-label="Please login">
+                            Sword of Omens, give me Sight Beyond Sight!
+                            Ohh, you just need to login, snarf snarf...
+                        </span>
                     </LoginAlert>
                     <Routes showAlert={this.showAlert} />
                 </MainContent>

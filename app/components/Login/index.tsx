@@ -85,15 +85,16 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     closeAlert = (): void => { this.setState({ isAlertVisible: false }); }
 
     getAlertMessage = (): JSX.Element => (
-        <span>
+        <span id="signup-alert">
             Great Jaga's ghost! That didn't work.
-            Do you need to
+            Do you need to&#32;
             <a
                 style={{color: 'white'}}
                 tabIndex={0}
                 onClick={this.showSignup}
                 onKeyDown={this.handleKeyDownSignup}
-            > signup</a>,
+                aria-label="Press enter to signup"
+            >signup</a>,
             snarf snarf?
         </span>
     );
@@ -105,6 +106,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
                     close={this.closeAlert}
                     showSignup={this.showSignup}
                     isAlertVisible={this.state.isAlertVisible}
+                    messageId="signup-alert"
                 >{this.getAlertMessage()}</LoginAlert>
                 <LoginSignUpForm
                     onSubmit={this.handleLogin}

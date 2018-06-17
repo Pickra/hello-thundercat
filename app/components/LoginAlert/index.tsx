@@ -4,9 +4,18 @@ interface LoginAlertProps {
     close: () => void;
     showSignup?: () => void;
     isAlertVisible: boolean;
+    messageId: string;
 }
 
 export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
+    messageRef: HTMLElement;
+
+    componentDidUpdate() {
+        if (this.props.isAlertVisible) {
+            this.messageRef.focus();
+        }
+    }
+
     handleKeyDownClose = e => {
         if (e.key === 'Enter') {
             e.preventDefault()
@@ -15,7 +24,7 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
     }
 
     render() {
-        const { close, children, isAlertVisible} = this.props;
+        const { close, children, isAlertVisible, messageId} = this.props;
         if (!isAlertVisible) { return null; }
 
         return (
@@ -35,7 +44,11 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
                         aria-label="close"
                     ><use xlinkHref="#ei-close"></use></svg>
                 </span>
-                {children}
+                <div
+                    tabIndex={0}
+                    ref={ref => {this.messageRef = ref}}
+                    aria-labelledby={messageId}
+                >{children}</div>
             </div>
         );
     }
