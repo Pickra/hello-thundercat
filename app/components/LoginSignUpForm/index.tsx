@@ -7,7 +7,7 @@ interface LoginSignUpFormProps {
 }
 
 const loginButtonClasses = "grid__col grid__col--xs-offset-9 grid__col--xs-3 grid__col--sm-offset-7 grid__col--sm-2";
-const inputRowClasses = "grid__col grid__col--xs-12 grid__col--sm-offset-3 grid__col--sm-6";
+const inputColClasses = "grid__col grid__col--xs-12 grid__col--sm-offset-3 grid__col--sm-6";
 
 export default class LoginSignUpForm extends React.Component<LoginSignUpFormProps, {}> {
     loginRef: HTMLInputElement;
@@ -30,7 +30,7 @@ export default class LoginSignUpForm extends React.Component<LoginSignUpFormProp
             <form className="form grid" onSubmit={this.handleSubmit}>
                 <h2>{this.props.title}</h2>
                 <div className="grid__row grid__row--padded" style={{marginTop: "5rem"}}>
-                    <div className={inputRowClasses}>
+                    <div className={inputColClasses}>
                         <label className="label" htmlFor="login">Login</label>
                         <input
                             className="input"
@@ -42,7 +42,7 @@ export default class LoginSignUpForm extends React.Component<LoginSignUpFormProp
                     </div>
                 </div>
                 <div className="grid__row grid__row--padded">
-                    <div className={inputRowClasses}>
+                    <div className={inputColClasses}>
                         <label className="label" htmlFor="password">Password</label>
                         <input
                             className="input"

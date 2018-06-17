@@ -12,7 +12,10 @@ const defaultState:User = {
     isLoggedIn: false,
     hasSelectedCharacter: false,
     headerTitle: "ThunderCat",
-    character: Characters["logo"]
+    character: {
+        src: require("../../images/logo.png"),
+        alt: "Thundercats Logo"
+    }
 };
 
 export default (state = defaultState, action) => {
