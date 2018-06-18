@@ -10,10 +10,47 @@ interface DrawerProps {
 
 interface DrawerState {
     isActive: boolean;
+    isHoldingShiftKey: boolean;
 }
 
 export default class Drawer extends React.Component<DrawerProps, DrawerState> {
-    state = { isActive: true }
+    state = {
+        isActive: true,
+        isHoldingShiftKey: false
+    };
+
+    titleRef: HTMLElement;
+    submitButtonRef: HTMLElement;
+
+    componentDidUpdate() {
+        if (this.state.isActive) {
+            this.titleRef.focus();
+        }
+    }
+
+    submitFocusTrap = e => {
+        if (e.shiftKey) { return; }
+
+        if (e.key === "Tab") {
+            e.preventDefault();
+            this.titleRef.focus();
+        }
+    }
+
+    titleFocusTrapForward = e => {
+        if (this.state.isHoldingShiftKey && e.key === "Tab") {
+            e.preventDefault();
+            this.submitButtonRef.focus();
+            this.setState({isHoldingShiftKey: false});
+        }
+    }
+
+    titleFocusTrapBackward = e => {
+        if (e.shiftKey) {
+            e.preventDefault();
+            this.setState({isHoldingShiftKey: true});
+        };
+    }
 
     onCancelClick = e => {
         e.preventDefault();
@@ -22,6 +59,7 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
 
     onKeyDownCancel = e => {
         if (e.key === "Enter") {
+            e.preventDefault();
             this.onCancelClick(e);
         }
     }
@@ -36,7 +74,14 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                 className="drawer__content"
                 onSubmit={onSubmit}
             >
-                <div className="drawer__head">
+                <div
+                    className="drawer__head"
+                    tabIndex={0}
+                    ref={ref => { this.titleRef = ref; }}
+                    onKeyDown={this.titleFocusTrapBackward}
+                    onKeyUp={this.titleFocusTrapForward}
+                    aria-labelledby="title"
+                >
                     <span
                         className="drawer__close"
                         onClick={toggleDrawer}
@@ -46,10 +91,10 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                         <svg
                             className="icon icon--md"
                             role="button"
-                            aria-label="close"
+                            aria-label="Close Drawer"
                         ><use xlinkHref="#ei-close"></use></svg>
                     </span>
-                    <h2>You Have Selected {selectedCharacter.id}</h2>
+                    <h2 id="title">You Have Selected {selectedCharacter.id}</h2>
                 </div>
                 <div className="drawer__body">{children}</div>
                 <div className="drawer__foot">
@@ -59,7 +104,11 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                         onKeyDown={this.onKeyDownCancel}
                         style={{marginRight: "1rem"}}
                     >Cancel</button>
-                    <button className="button button--primary">100%</button>
+                    <button
+                        className="button button--primary"
+                        ref={ref => { this.submitButtonRef = ref; }}
+                        onKeyDown={this.submitFocusTrap}
+                    >100%</button>
                 </div>
             </form>
         );
