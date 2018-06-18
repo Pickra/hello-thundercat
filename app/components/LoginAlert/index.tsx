@@ -28,7 +28,13 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
         if (!isAlertVisible) { return null; }
 
         return (
-            <div className="alert alert--warning" style={{marginTop: "2rem"}}>
+            <div
+                className="alert alert--warning"
+                style={{marginTop: "2rem"}}
+                aria-labelledby={messageId}
+                tabIndex={0}
+                ref={ref => {this.messageRef = ref}}
+            >
                 <span className="alert__icon">
                     <svg className="icon icon--md"><use xlinkHref="#ei-eye"></use></svg>
                 </span>
@@ -41,14 +47,10 @@ export default class LoginAlert extends React.Component<LoginAlertProps, {}> {
                     <svg
                         className="icon icon--md"
                         role="button"
-                        aria-label="close"
+                        aria-label="Close"
                     ><use xlinkHref="#ei-close"></use></svg>
                 </span>
-                <div
-                    tabIndex={0}
-                    ref={ref => {this.messageRef = ref}}
-                    aria-labelledby={messageId}
-                >{children}</div>
+                {children}
             </div>
         );
     }
