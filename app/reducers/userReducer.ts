@@ -22,6 +22,8 @@ export default (state = defaultState, action) => {
     switch(action.type) {
         case userActions.login:
             return { ...state, isLoggedIn: action.payload.isLoggedIn };
+        case userActions.logout:
+            return defaultState;
         case userActions.selectCharacter:
             return {
                 ...state,

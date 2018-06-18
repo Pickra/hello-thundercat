@@ -4,6 +4,7 @@ import userReducer from "../reducers/userReducer";
 
 export enum userActions {
     login = "LOGIN",
+    logout = "LOGOUT",
     selectCharacter = "SELECT_CHARACTER"
 }
 

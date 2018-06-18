@@ -1,5 +1,4 @@
 import * as React from "react";
-import userStore from "../../stores/userStore";
 
 interface HeaderProps {
     titleText: string;
