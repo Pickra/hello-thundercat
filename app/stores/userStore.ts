@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { loadState } from "../localStorage";
 import userReducer from "../reducers/userReducer";
 
 export enum userActions {
@@ -6,6 +7,6 @@ export enum userActions {
     selectCharacter = "SELECT_CHARACTER"
 }
 
-const store = createStore(userReducer);
+const persistedState = loadState();
 
-export default store;
+export default createStore(userReducer, persistedState);

@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { saveState } from "./localStorage";
 import userStore from "./stores/userStore";
 import App from "./containers/App/index";
 
@@ -29,4 +30,6 @@ const render = () => {
 
 render();
 
-userStore.subscribe(render);
+userStore.subscribe(() => {
+    saveState(userStore.getState())
+});

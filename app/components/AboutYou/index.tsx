@@ -1,5 +1,6 @@
 import * as React from "react";
 import userStore from "../../stores/userStore";
+import Characters from "../../components/Characters";
 
 interface AboutYouState {
     dynamicComponent: JSX.Element;
@@ -9,11 +10,14 @@ export default class AboutYou extends React.Component<{}, AboutYouState> {
     state = { dynamicComponent: undefined }
 
     componentDidMount() {
-        const { component } = userStore.getState().character;
-        this.setState({ dynamicComponent: this.getComponent(component) })
+        const { id } = userStore.getState().character;
+        this.setState({ dynamicComponent: this.getComponent(id) })
     }
 
-    getComponent = ComponentFunction => <ComponentFunction />;
+    getComponent = name => {
+        const ThunderCat = Characters[name].component;
+        return <ThunderCat />;
+    };
 
     render() { return <div>{this.state.dynamicComponent}</div>; }
 }
