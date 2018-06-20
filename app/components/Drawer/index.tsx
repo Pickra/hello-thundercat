@@ -37,16 +37,18 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
         }
     }
 
-    titleFocusTrapForward = e => {
+    titleOnKeyUpFocusTrap = e => {
         if (this.state.isHoldingShiftKey && e.key === "Tab") {
             e.preventDefault();
-            this.submitButtonRef.focus();
             this.setState({isHoldingShiftKey: false});
         }
     }
 
-    titleFocusTrapBackward = e => {
-        if (e.shiftKey) {
+    titleOnKeyDownFocusTrap = e => {
+        if (this.state.isHoldingShiftKey && e.key === "Tab") {
+            e.preventDefault();
+            this.submitButtonRef.focus();
+        } else if (e.shiftKey) {
             e.preventDefault();
             this.setState({isHoldingShiftKey: true});
         };
@@ -78,8 +80,8 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                     className="drawer__head"
                     tabIndex={0}
                     ref={ref => { this.titleRef = ref; }}
-                    onKeyDown={this.titleFocusTrapBackward}
-                    onKeyUp={this.titleFocusTrapForward}
+                    onKeyDown={this.titleOnKeyDownFocusTrap}
+                    onKeyUp={this.titleOnKeyUpFocusTrap}
                     aria-labelledby="title"
                 >
                     <span
