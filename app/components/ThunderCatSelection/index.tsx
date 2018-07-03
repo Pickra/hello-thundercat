@@ -100,12 +100,14 @@ class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, Thun
                         id="characters"
                     >{this.getCols()}</div>
                 </div>
-                <Drawer
-                    selectedCharacter={selectedCharacter}
-                    toggleDrawer={this.toggleDrawer}
-                    onSubmit={this.onSubmit}
-                    isActive={isDrawerOpen}
-                >{getDrawerBody(selectedCharacter)}</Drawer>
+                <div className={"drawer" + (isDrawerOpen ? " drawer--open" : "")}>
+                    <Drawer
+                        selectedCharacter={selectedCharacter}
+                        toggleDrawer={this.toggleDrawer}
+                        onSubmit={this.onSubmit}
+                        isActive={isDrawerOpen}
+                    >{getDrawerBody(selectedCharacter)}</Drawer>
+                </div>
             </div>
         );
     }
