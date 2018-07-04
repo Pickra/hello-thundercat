@@ -16,43 +16,21 @@ interface CharacterMap {
     [key: string]: Character;
 }
 
-const Characters: CharacterMap = {
-    "Lion'O": {
-        src: require("../../../images/lion-o.png"),
-        alt: "Lion'O image",
-        id: "Lion'O",
-        component: LionO
-    },
-    "Cheetara": {
-        src: require("../../../images/cheetara.png"),
-        alt: "Cheetara image",
-        id: "Cheetara",
-        component: Cheetara
-    },
-    "Tygra": {
-        src: require("../../../images/tygra.png"),
-        alt: "Tygra image",
-        id: "Tygra",
-        component: Tygra
-    },
-    "Wilykit": {
-        src: require("../../../images/wilykit.png"),
-        alt: "Wilykit image",
-        id: "Wilykit",
-        component: Wilykit
-    },
-    "Panthro": {
-        src: require("../../../images/panthro.png"),
-        alt: "Panthro image",
-        id: "Panthro",
-        component: Panthro
-    },
-    "Wilykat": {
-        src: require("../../../images/wilykat.png"),
-        alt: "Wilykat image",
-        id: "Wilykat",
-        component: Wilykat
+const thundercats = { LionO, Cheetara, Tygra, Wilykit, Panthro, Wilykat };
+
+const Characters: CharacterMap = Object.keys(thundercats)
+.reduce((acc, curr, i) => {
+    const src = i === 0 ? "lion-o" : curr.toLowerCase();
+    const name = i === 0 ? "Lion'O" : curr;
+
+    acc[name] = {
+        src: require(`../../../images/${src}.png`),
+        alt: `${name} image`,
+        id: name,
+        component: thundercats[curr]
     }
-}
+
+    return acc;
+}, {});
 
 export default Characters;
