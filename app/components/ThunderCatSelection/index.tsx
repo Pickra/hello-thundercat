@@ -45,14 +45,14 @@ class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, Thun
             return (
                 <div
                     className="grid__col grid__col--xs-4"
-                    key={character.id}
+                    key={k}
                     role="radiogroup"
-                    aria-labelledby="characters"
+                    aria-labelledby="Thundercats"
                 >
                     <label
                         className="label"
                         style={{textAlign: "center", marginRight: 0}}
-                        htmlFor={character.id}
+                        htmlFor={k}
                     >
                         <img
                             src={character.src}
@@ -61,8 +61,8 @@ class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, Thun
                         <p>{k}</p>
                         <input
                             type="radio"
-                            name={character.id}
-                            id={character.id}
+                            name="Thundercat"
+                            id={k}
                             onKeyDown={e => this.onKeyDown(e, character)}
                             onClick={() => this.handleCharacterSelection(character)}
                         />
