@@ -7,6 +7,7 @@ import { History } from "history";
 
 interface ThunderCatSelectionState {
     selectedCharacter: Character;
+    selectedRef: HTMLLabelElement;
     isDrawerOpen: boolean;
 }
 
@@ -14,28 +15,40 @@ interface ThunderCatSelectionProps {
     history: History;
 }
 
+interface OnKeyDown {
+    (e: React.KeyboardEvent<HTMLLabelElement>, thunderCat: Character, ref: HTMLLabelElement): void;
+}
+
+const visuallyHidden = {
+    position: "absolute", height: "1px", margin: "-1px",
+    clip: "rect(0 0 0 0)", overflow: "hidden", width: "1px"
+} as React.CSSProperties;
+
 class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, ThunderCatSelectionState> {
     state = {
         selectedCharacter: undefined,
+        selectedRef: undefined,
         isDrawerOpen: false
     }
 
-    handleCharacterSelection = (thunderCat: Character) => {
+    handleCharacterSelection = (thunderCat: Character, ref: HTMLLabelElement) => {
         this.setState({
             selectedCharacter: thunderCat,
+            selectedRef: ref,
             isDrawerOpen: true
         });
     }
 
-    onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, thunderCat: Character) => {
+    onKeyDown: OnKeyDown = (e, thunderCat, ref) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            this.handleCharacterSelection(thunderCat);
+            this.handleCharacterSelection(thunderCat, ref);
         }
     }
 
     toggleDrawer = () => {
-        this.setState({ isDrawerOpen: !this.state.isDrawerOpen})
+        this.setState({ isDrawerOpen: !this.state.isDrawerOpen});
+        this.state.selectedRef.focus();
     }
 
     getCols() {
@@ -53,18 +66,19 @@ class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, Thun
                         className="label"
                         style={{textAlign: "center", marginRight: 0}}
                         htmlFor={k}
+                        tabIndex={0}
+                        onKeyDown={e => this.onKeyDown(e, character, this[`${k}-ref`])}
+                        onClick={() => this.handleCharacterSelection(character, this[`${k}-ref`])}
+                        ref={ref => this[`${k}-ref`] = ref}
                     >
-                        <img
-                            src={character.src}
-                            alt={character.alt}
-                        />
+                        <img src={character.src} alt={character.alt} />
                         <p>{k}</p>
                         <input
                             type="radio"
                             name="Thundercat"
                             id={k}
-                            onKeyDown={e => this.onKeyDown(e, character)}
-                            onClick={() => this.handleCharacterSelection(character)}
+                            tabIndex={-1}
+                            style={visuallyHidden}
                         />
                     </label>
                 </div>
@@ -72,7 +86,7 @@ class ThunderCatSelection extends React.Component<ThunderCatSelectionProps, Thun
         });
     }
 
-    onSubmit = e => {
+    onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         this.toggleDrawer();
 
