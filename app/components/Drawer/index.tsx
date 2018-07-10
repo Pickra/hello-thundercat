@@ -9,13 +9,8 @@ interface DrawerProps {
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-interface DrawerState {
-    isHoldingShiftKey: boolean;
-}
 
-export default class Drawer extends React.Component<DrawerProps, DrawerState> {
-    state = { isHoldingShiftKey: false };
-
+export default class Drawer extends React.Component<DrawerProps, {}> {
     titleRef: HTMLElement;
     submitButtonRef: HTMLElement;
     formRef: HTMLFormElement;
@@ -26,34 +21,24 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
         }
     }
 
-    submitFocusTrap = e => {
-        if (!this.props.isActive || e.shiftKey) { return; }
+    onKeyDownFocusTrap = e => {
+        // My original implementation was overcomplicated + not 100%; it was maybe 98%
+        // So I borrowed from Hidde de Vries; his article is great.
+        // https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
+        const isTabPressed = e.key === 'Tab';
+        if (!this.props.isActive || !isTabPressed) { return; }
 
-        if (e.key === "Tab") {
-            e.preventDefault();
-            this.titleRef.focus();
+        if (e.shiftKey) { /* shift + tab */
+            if (document.activeElement === this.titleRef) {
+                this.submitButtonRef.focus();
+                e.preventDefault();
+            }
+        } else { /* tab */
+            if (document.activeElement === this.submitButtonRef) {
+                this.titleRef.focus();
+                e.preventDefault();
+            }
         }
-    }
-
-    titleOnKeyUpFocusTrap = e => {
-        if (!this.props.isActive) { return; }
-
-        if (this.state.isHoldingShiftKey && e.key === "Tab") {
-            e.preventDefault();
-            this.setState({isHoldingShiftKey: false});
-        }
-    }
-
-    titleOnKeyDownFocusTrap = e => {
-        if (!this.props.isActive) { return; }
-
-        if (this.state.isHoldingShiftKey && e.key === "Tab") {
-            e.preventDefault();
-            this.submitButtonRef.focus();
-        } else if (e.shiftKey) {
-            e.preventDefault();
-            this.setState({isHoldingShiftKey: true});
-        };
     }
 
     toggleOnKey = (e, key) => {
@@ -89,8 +74,7 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                     className="drawer__head"
                     tabIndex={0}
                     ref={ref => { this.titleRef = ref; }}
-                    onKeyDown={this.titleOnKeyDownFocusTrap}
-                    onKeyUp={this.titleOnKeyUpFocusTrap}
+                    onKeyDown={this.onKeyDownFocusTrap}
                     aria-labelledby="title"
                 >
                     <span
@@ -118,7 +102,7 @@ export default class Drawer extends React.Component<DrawerProps, DrawerState> {
                     <button
                         className="button button--primary"
                         ref={ref => { this.submitButtonRef = ref; }}
-                        onKeyDown={this.submitFocusTrap}
+                        onKeyDown={this.onKeyDownFocusTrap}
                     >100%</button>
                 </div>
             </form>
