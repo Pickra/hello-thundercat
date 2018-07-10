@@ -9,7 +9,6 @@ interface DrawerProps {
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-
 export default class Drawer extends React.Component<DrawerProps, {}> {
     titleRef: HTMLElement;
     submitButtonRef: HTMLElement;
@@ -56,9 +55,7 @@ export default class Drawer extends React.Component<DrawerProps, {}> {
     }
 
     render() {
-        const {
-            children, selectedCharacter, toggleDrawer, onSubmit, isActive
-        } = this.props;
+        const { children, selectedCharacter, toggleDrawer, onSubmit } = this.props;
 
         if (!selectedCharacter) { return false; }
 
@@ -67,20 +64,20 @@ export default class Drawer extends React.Component<DrawerProps, {}> {
                 name="thundercat-drawer"
                 className="drawer__content"
                 onSubmit={onSubmit}
-                ref={ref => { this.formRef = ref; }}
-                onKeyDown={e => {this.toggleOnKey(e, "Escape");}}
+                ref={ref => this.formRef = ref}
+                onKeyDown={e => this.toggleOnKey(e, "Escape")}
             >
                 <div
                     className="drawer__head"
                     tabIndex={0}
-                    ref={ref => { this.titleRef = ref; }}
+                    ref={ref => this.titleRef = ref}
                     onKeyDown={this.onKeyDownFocusTrap}
                     aria-labelledby="title"
                 >
                     <span
                         className="drawer__close"
                         onClick={toggleDrawer}
-                        onKeyDown={e => {this.toggleOnKey(e, "Enter");}}
+                        onKeyDown={e => this.toggleOnKey(e, "Enter")}
                         tabIndex={0}
                     >
                         <svg
@@ -96,12 +93,12 @@ export default class Drawer extends React.Component<DrawerProps, {}> {
                     <button
                         className="button"
                         onClick={this.onCancelClick}
-                        onKeyDown={e => {this.toggleOnKey(e, "Enter");}}
+                        onKeyDown={e => this.toggleOnKey(e, "Enter")}
                         style={{marginRight: "1rem"}}
                     >Cancel</button>
                     <button
                         className="button button--primary"
-                        ref={ref => { this.submitButtonRef = ref; }}
+                        ref={ref => this.submitButtonRef = ref}
                         onKeyDown={this.onKeyDownFocusTrap}
                     >100%</button>
                 </div>
